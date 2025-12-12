@@ -55,18 +55,15 @@ if st.sidebar.button("Cari Rekomendasi"):
 
         for _, row in hasil.iterrows():
             with st.container():
-                col1, col2 = st.columns([1, 3])
-                with col1:
-                    st.image("https://via.placeholder.com/250?text=" + row["Nama_hp"].replace(" ", "+"))
-                with col2:
-                    st.markdown(f"### {row['Nama_hp']}")
-                    st.markdown(f"**Brand:** {row['Brand']}")
-                    st.markdown(f"**Harga:** Rp {row['Harga']:,}")
-                    st.markdown(f"**RAM:** {row['Ram']} GB")
-                    st.markdown(f"**Kamera:** {row['Resolusi_kamera']}")
-                    st.markdown(f"**Baterai:** {row['Kapasitas_baterai']} mAh")
-                    st.markdown(f"**Rating Pengguna:** ⭐ {row['Rating_pengguna']}")
-                    st.markdown(f"**Kategori Rekomendasi:** 🎯 {row['Prediksi_Kelas']}")
+                st.markdown(f"### {row['Nama_hp']} — {row['Brand']}")
+                st.markdown(f"**Harga:** Rp {row['Harga']:,}")
+                st.markdown(f"**RAM:** {row['Ram']} GB")
+                st.markdown(f"**Kamera:** {row['Resolusi_kamera']}")
+                st.markdown(f"**Memori Internal:** {row['Memori_internal']} GB")
+                st.markdown(f"**Layar:** {row['Ukuran_layar']} inch")
+                st.markdown(f"**Baterai:** {row['Kapasitas_baterai']} mAh")
+                st.markdown(f"**Rating Pengguna:** ⭐ {row['Rating_pengguna']}")
+                st.markdown(f"**Kategori Rekomendasi:** 🎯 {row['Prediksi_Kelas']}")
                 st.markdown("<hr>", unsafe_allow_html=True)
 
         st.download_button(
@@ -76,4 +73,4 @@ if st.sidebar.button("Cari Rekomendasi"):
             mime="text/csv"
         )
 else:
-    st.info("Masukkan filter pada sidebar lalu klik *Cari Rekomendasi*.")
+    st.info("Masukkan filter pada sidebar lalu klik *Cari Rekomendasi*.")  
